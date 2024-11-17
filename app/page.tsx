@@ -353,22 +353,22 @@ export default function EnchantingDateProposalApp() {
 
   useEffect(() => {
     const saveAnswers = async () => {
-      console.log('Saved answers:', answers);
-      
+      console.log("Saved answers:", answers);
+
       // Save to localStorage
-      localStorage.setItem('dateProposalAnswers', JSON.stringify(answers));
+      localStorage.setItem("dateProposalAnswers", JSON.stringify(answers));
 
       // Send to your email
       try {
-        await fetch('/api/send-response', {
-          method: 'POST',
+        await fetch("/api/send-response", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(answers)
+          body: JSON.stringify(answers),
         });
       } catch (error) {
-        console.error('Failed to send response:', error);
+        console.error("Failed to send response:", error);
       }
     };
 
